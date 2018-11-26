@@ -56,4 +56,8 @@ li {
 a {
   color: #42b983;
 }
+div.hello {
+  float: left;
+  width: 34%;
+}
 </style>
