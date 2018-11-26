@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <router-view name="rightMenu"/>
     <router-view/>
-    <router-view name="leftMenu"/>
   </div>
 </template>
 
