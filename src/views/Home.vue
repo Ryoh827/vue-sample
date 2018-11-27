@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div>
-      <p>Page: {{ this.$route.params.id || 0 }} </p>
+      <p>Page: {{ this.$route.params.id || "Top" }} </p>
     </div>
     <Menu text="right"/>
     <MainContent msg="Content" :id="this.$route.params.id"/>
@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Watch } from 'vue-property-decorator';
 import MainContent from '@/components/MainContent.vue';
 import Menu from '@/components/Menu.vue';
 

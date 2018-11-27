@@ -1,6 +1,32 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }} - {{ pageId }}</h1>
+    <h1>{{ msg }} - {{ pageId || "Top" }}</h1>
+    <ul>
+      <router-link tag="li" :to="{ name: 'home'}">
+        <a>Top</a>
+      </router-link>
+      <router-link tag="li" :to="{ name: 'page', params: { id: 1 }}">
+        <a>1</a>
+      </router-link>
+      <router-link tag="li" :to="{ name: 'page', params: { id: 2 }}">
+        <a>2</a>
+      </router-link>
+      <router-link tag="li" :to="{ name: 'page', params: { id: 3 }}">
+        <a>3</a>
+      </router-link>
+      <router-link tag="li" :to="{ name: 'page', params: { id: 4 }}">
+        <a>4</a>
+      </router-link>
+      <router-link tag="li" :to="{ name: 'page', params: { id: 5 }}">
+        <a>5</a>
+      </router-link>
+      <router-link tag="li" :to="{ name: 'page', params: { id: 6 }}">
+        <a>6</a>
+      </router-link>
+      <router-link tag="li" :to="{ name: 'page', params: { id: 7 }}">
+        <a>7</a>
+      </router-link>
+    </ul>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -32,7 +58,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 
 @Component
 export default class MainContent extends Vue {
@@ -40,6 +66,11 @@ export default class MainContent extends Vue {
   @Prop() private id!: number;
 
   private pageId: number = this.id || 0;
+
+  @Watch('id')
+  private onIdChanged(val: number, oldVal: number) {
+    this.pageId = val;
+  }
 }
 </script>
 
