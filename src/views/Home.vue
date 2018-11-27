@@ -3,9 +3,9 @@
     <div>
       <p>Page: {{ this.$route.params.id || "Top" }} </p>
     </div>
-    <Menu text="right"/>
-    <MainContent msg="Content" :id="this.$route.params.id"/>
     <Menu text="left"/>
+    <MainContent msg="Content" :id="this.$route.params.id"/>
+    <Menu text="right"/>
   </div>
 </template>
 
