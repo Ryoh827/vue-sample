@@ -1,7 +1,10 @@
 <template>
   <div class="home">
+    <div>
+      <p>Page: {{ this.$route.params.id || 0 }} </p>
+    </div>
     <Menu text="right"/>
-    <MainContent msg="Content"/>
+    <MainContent msg="Content" :id="this.$route.params.id"/>
     <Menu text="left"/>
   </div>
 </template>
@@ -17,6 +20,7 @@ import Menu from '@/components/Menu.vue';
     Menu,
   },
 })
+
 export default class Home extends Vue {}
 </script>
 
