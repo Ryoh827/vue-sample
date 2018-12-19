@@ -1,14 +1,21 @@
 <template>
     <div class="menu">
-        <h2>{{text}}</h2>
+        <Content :pageId="this.pageId"/>
     </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop , Vue } from 'vue-property-decorator';
+import Content from '@/components/Content.vue';
 
-@Component
+@Component({
+    components: {
+        Content,
+    },
+})
 export default class Menu extends Vue {
+  @Prop() private pageId!: number;
+
   @Prop() private text!: string;
 }
 </script>
