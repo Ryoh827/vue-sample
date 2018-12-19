@@ -10,8 +10,8 @@ import Content from '@/components/Content.vue';
 
 @Component({
   components: {
-    Content
-  }
+    Content,
+  },
 })
 export default class MainContent extends Vue {
   @Prop() private msg!: string;

@@ -58,9 +58,9 @@ export default class Home extends Vue {
       leftMenuPageId: 0,
       rightMenuPageId: 0,
       topPageId: 0,
-    }
+    },
   };
-  
+
   private async mounted() {
     if (this.info.satus !== 200) {
       this.info = await axios.get('/pages/info.json');

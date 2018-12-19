@@ -12,13 +12,13 @@ import axios from 'axios';
 @Component({})
 
 export default class Content extends Vue {
+
+  public static info: any = null;
   @Prop() private pageId!: number;
 
   private body: string = '';
 
   private pagename: string = '';
-
-  public static info: any = null;
 
   @Watch('pageId')
   private onChangePageId(val: number, oldVal: number): void {
@@ -32,16 +32,17 @@ export default class Content extends Vue {
 
   private async updatePage(): Promise<void> {
     try {
-      this.pagename = 'Not Found';
-      this.body = '<p>This Page was maybe deleted</p>';
-
       const response = await axios.get(`/pages/${this.pageId}.json`);
       if (response.status === 200) {
         this.pagename = response.data.pagename;
         this.body = response.data.body;
+      } else {
+        this.pagename = 'Not Found';
+        this.body = '<p>This Page was maybe deleted</p>';
       }
     } catch (err) {
-      console.log(err);
+      this.pagename = 'Not Found';
+      this.body = '<p>This Page was maybe deleted</p>';
     }
   }
 }
